@@ -109,6 +109,42 @@
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
     </TableRow>
+
+    <TableRow
+        android:id="@+id/rowOR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dip" >
+
+
+        <TextView
+            android:id="@+id/textOr"
+            android:text="OR"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_column="1" />
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/rowHeightMeter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dip" >
+
+        <EditText
+            android:id="@+id/editHeightMeter"
+            android:layout_width="10dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:layout_column="1">
+        </EditText>
+        <TextView
+            android:id="@+id/textHeightMeterUnit"
+            android:text="meters"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    </TableRow>
     <Space
         android:layout_width="1dp"
         android:layout_height="15dp"/>

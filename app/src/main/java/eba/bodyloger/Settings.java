@@ -7,6 +7,8 @@ import android.content.SharedPreferences;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -49,6 +51,36 @@ public class Settings extends ActionBarActivity{
         final String Targetweight=settings.getString("targetweight","");
         edittext_weightGoal.setText(Targetweight);
 
+        final String height=settings.getString("height","");
+        final EditText editText_heightmeter   = (EditText)findViewById(R.id.editHeightMeter);
+
+        double heightMeter= Integer.parseInt(height)*0.0254;
+        editText_heightmeter.setText(Double.toString(heightMeter));
+
+        editText_heightmeter.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before,
+                                      int count) {
+
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count,
+                                          int after) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                Double height = Double.parseDouble(s.toString());
+                height=3.28084*height;
+                int heightFeet=height.intValue();
+                double heightInches=height-heightFeet;
+                edittext_heightFeet.setText(Integer.toString(heightFeet));
+                int heightInch=(int)(heightInches*12);
+                edittext_heightInches.setText(Integer.toString(heightInch));
+            }
+        });
 
 
         button.setOnClickListener(new View.OnClickListener() {

@@ -109,11 +109,12 @@ public class FragmentHome extends Fragment implements AdapterView.OnItemClickLis
         String unit=settings.getString("pref_units","male");
         float BMI;
         if(unit.equals("std")){
-            BMI=(Float.parseFloat(weight))/(height_int*height_int);
+           Float height_meter=height_int*0.0254f;
+            BMI=(Float.parseFloat(weight))/(height_meter*height_meter);
         }else{
             BMI=(float)(((Float.parseFloat(weight)))*703)/(height_int*height_int);
         }
-       // float BMI=(float)((Integer.parseInt(weight))*703)/(height_int*height_int);
+       //float BMI=(float)((Integer.parseInt(weight))*703)/(height_int*height_int);
         //String BMI=datasource.findLastBMI();
         input_BMI.setText(String.format("%.2f", BMI));
 
