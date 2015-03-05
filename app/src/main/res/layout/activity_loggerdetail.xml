@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/maintable">
+
+    <Space
+        android:layout_width="1dp"
+        android:layout_height="30dp"
+        />
+
+    <TableRow
+        android:id="@+id/rowDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dip" >
+
+        <TextView
+            android:id="@+id/textDate"
+            android:text="Date"
+            android:paddingRight="50dp"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+        <TextView
+            android:id="@+id/textDateValue"
+            android:text="02-17-1989"
+            android:paddingRight="50dp"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    </TableRow>
+
+    <Space
+        android:layout_width="1dp"
+        android:layout_height="30dp"
+        />
+    <TableRow
+        android:id="@+id/rowWeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dip" >
+
+        <TextView
+            android:id="@+id/textWeight"
+            android:text="Weight"
+            android:paddingRight="50dp"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <EditText
+            android:id="@+id/editTextWeightUpdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:textColor="@android:color/black">
+
+
+        </EditText>
+
+        <TextView
+            android:id="@+id/textWeightUnit"
+            android:text="lbs"
+            android:paddingRight="50dp"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    </TableRow>
+
+    <Space
+        android:layout_width="1dp"
+        android:layout_height="30dp"
+        />
+    <TableRow
+        android:id="@+id/rowWaist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dip" >
+
+        <TextView
+            android:id="@+id/textWaist"
+            android:text="Waist"
+            android:paddingRight="50dp"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <EditText
+            android:id="@+id/editTextWaistUpdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number" >
+
+
+        </EditText>
+
+        <TextView
+            android:id="@+id/textWaistUnit"
+            android:text="in"
+            android:paddingRight="50dp"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    </TableRow>
+
+
+    <Space
+        android:layout_width="1dp"
+        android:layout_height="30dp"
+        />
+    <TableRow
+        android:id="@+id/rowNeck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dip" >
+
+        <TextView
+            android:id="@+id/textNeck"
+            android:text="Neck"
+            android:paddingRight="50dp"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <EditText
+            android:id="@+id/editNeckTextUpdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number" >
+
+
+        </EditText>
+
+        <TextView
+            android:id="@+id/textNeckUnit"
+            android:text="in"
+            android:paddingRight="50dp"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    </TableRow>
+
+
+    <Space
+        android:layout_width="1dp"
+        android:layout_height="60dp"
+        />
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Update"
+            android:id="@+id/updateButton"
+            android:layout_column="1" />
+    </TableRow>
+
+</TableLayout>

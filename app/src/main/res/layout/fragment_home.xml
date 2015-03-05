@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#ffffff">
+
+
+
+    <LinearLayout
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="46dp"
+        android:orientation="vertical"
+        android:background="@drawable/weight_drawable"
+        android:weightSum="1"
+        android:id="@+id/linearLayoutWeight"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Weight"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_alignParentTop="false"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:id="@+id/output_weight"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="100"
+            android:gravity="top|center"
+            android:layout_marginTop="-10dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_weight="0.5" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:orientation="vertical"
+        android:background="@drawable/bmi_drawable"
+        android:weightSum="1"
+        android:id="@+id/linearLayoutBMI"
+        android:layout_below="@+id/linearLayoutWeight"
+        android:layout_toLeftOf="@+id/linearLayoutWeight"
+        android:layout_toStartOf="@+id/linearLayoutWeight">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="BMI"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_alignParentTop="false"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:id="@+id/output_BMI"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="100"
+            android:gravity="top|center"
+            android:layout_marginTop="-10dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_weight="0.5" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:orientation="vertical"
+        android:background="@drawable/bf_drawable"
+        android:weightSum="1"
+        android:id="@+id/linearLayoutBF"
+        android:layout_alignTop="@+id/linearLayoutBMI"
+        android:layout_toRightOf="@+id/linearLayoutWeight"
+        android:layout_toEndOf="@+id/linearLayoutWeight">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="BF"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_alignParentTop="false"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:id="@+id/output_BF"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="100"
+            android:gravity="top|center"
+            android:layout_marginTop="-10dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_weight="0.5" />
+
+    </LinearLayout>
+
+</RelativeLayout>

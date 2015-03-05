@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Height"
+        android:id="@+id/textViewHeight"
+        android:layout_marginLeft="25dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="76dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/editTextheightfeet"
+        android:layout_alignTop="@+id/textViewHeight"
+        android:layout_toRightOf="@+id/textViewHeight"
+        android:layout_toEndOf="@+id/textViewHeight" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="feet"
+        android:id="@+id/unitFeet"
+        android:layout_alignBottom="@+id/textViewHeight"
+        android:layout_toRightOf="@+id/editTextheightfeet"
+        android:layout_toEndOf="@+id/editTextheightfeet" />
+
+    <EditText
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/editTextheightinches"
+        android:layout_alignTop="@+id/editTextheightfeet"
+        android:layout_toRightOf="@+id/unitFeet"
+        android:layout_toEndOf="@+id/unitFeet" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="inches"
+        android:id="@+id/unitInches"
+        android:layout_alignTop="@+id/unitFeet"
+        android:layout_toRightOf="@+id/editTextheightinches"
+        android:layout_toEndOf="@+id/editTextheightinches" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Input your initial measurements"
+        android:id="@+id/textView4"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/textViewHeight"
+        android:layout_alignStart="@+id/textViewHeight"
+        android:layout_marginTop="23dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Current Weight"
+        android:id="@+id/textView5"
+        android:layout_marginTop="127dp"
+        android:layout_below="@+id/editTextheightfeet"
+        android:layout_alignLeft="@+id/textViewHeight"
+        android:layout_alignStart="@+id/textViewHeight" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/editText"
+        android:layout_alignBottom="@+id/textView5"
+        android:layout_toRightOf="@+id/textView5"
+        android:layout_alignRight="@+id/textView4"
+        android:layout_alignEnd="@+id/textView4" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Target Weight"
+        android:id="@+id/textView6"
+        android:layout_marginTop="52dp"
+        android:layout_below="@+id/textView5"
+        android:layout_toLeftOf="@+id/editText2"
+        android:layout_toStartOf="@+id/editText2" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/editText2"
+        android:layout_alignBottom="@+id/textView6"
+        android:layout_alignLeft="@+id/editText"
+        android:layout_alignStart="@+id/editText"
+        android:layout_alignRight="@+id/editText"
+        android:layout_alignEnd="@+id/editText" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="lbs"
+        android:id="@+id/unitlbs"
+        android:layout_alignTop="@+id/textView5"
+        android:layout_toRightOf="@+id/textView4"
+        android:layout_toEndOf="@+id/textView4" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="lbs"
+        android:id="@+id/unitlbs2"
+        android:layout_alignTop="@+id/textView6"
+        android:layout_alignLeft="@+id/unitlbs"
+        android:layout_alignStart="@+id/unitlbs" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Next"
+        android:id="@+id/buttonNextMeasure"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="116dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/editText3"
+        android:layout_marginBottom="34dp"
+        android:layout_above="@+id/editText"
+        android:layout_toLeftOf="@+id/textView7"
+        android:layout_toStartOf="@+id/textView7" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="meters"
+        android:id="@+id/textView7"
+        android:layout_alignTop="@+id/editText3"
+        android:layout_alignRight="@+id/unitlbs"
+        android:layout_alignEnd="@+id/unitlbs" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="(OR)"
+        android:id="@+id/textView8"
+        android:layout_alignBaseline="@+id/textView7"
+        android:layout_alignBottom="@+id/textView7"
+        android:layout_alignLeft="@+id/textView6"
+        android:layout_alignStart="@+id/textView6" />
+
+</RelativeLayout>

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/maintablesettings">
+
+    <Space
+        android:layout_width="1dp"
+        android:layout_height="30dp"
+        />
+    <TableRow
+        android:id="@+id/rowName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dip" >
+
+        <TextView
+            android:id="@+id/textName"
+            android:text="Name"
+            android:paddingRight="50dp"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <EditText
+            android:id="@+id/editTextName_settings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:textColor="@android:color/black">
+        </EditText>
+
+
+
+    </TableRow>
+
+    <Space
+        android:layout_width="1dp"
+        android:layout_height="15dp"/>
+    <TableRow
+        android:id="@+id/rowAge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dip" >
+
+        <TextView
+            android:id="@+id/textAge"
+            android:text="Age"
+            android:paddingRight="50dp"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <EditText
+            android:id="@+id/editTextAge_settings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="numberDecimal" >
+
+
+        </EditText>
+
+
+
+    </TableRow>
+
+
+    <Space
+        android:layout_width="1dp"
+        android:layout_height="15dp"/>
+
+    <TableRow
+        android:id="@+id/rowHeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dip" >
+        <TextView
+            android:id="@+id/textHeight"
+            android:text="Height"
+            android:paddingRight="50dp"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+        <EditText
+            android:id="@+id/editTextHeightFeet_settings"
+            android:layout_width="10dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="numberDecimal" >
+        </EditText>
+        <TextView
+            android:id="@+id/textHeightUnit"
+            android:text="Feet"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    </TableRow>
+    <TableRow
+        android:id="@+id/rowHeightInch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dip" >
+
+        <EditText
+            android:id="@+id/editTextHeightFeetInch_settings"
+            android:layout_width="10dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:layout_column="1">
+        </EditText>
+        <TextView
+            android:id="@+id/textHeightInchUnit"
+            android:text="Inches"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    </TableRow>
+    <Space
+        android:layout_width="1dp"
+        android:layout_height="15dp"/>
+    <TableRow
+        android:id="@+id/rowtargetWeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dip" >
+        <TextView
+            android:id="@+id/textTargetWeight"
+            android:text="Weight Goal"
+
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+        <EditText
+            android:id="@+id/editTexttargetweight_settings"
+            android:layout_width="10dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="numberDecimal" >
+        </EditText>
+        <TextView
+            android:id="@+id/textWeightUnit"
+            android:text="lbs"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+
+    </TableRow>
+
+    <Space
+        android:layout_width="1dp"
+        android:layout_height="50dp"/>
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Update"
+            android:id="@+id/saveButton"
+            android:layout_column="1" />
+    </TableRow>
+</TableLayout>
