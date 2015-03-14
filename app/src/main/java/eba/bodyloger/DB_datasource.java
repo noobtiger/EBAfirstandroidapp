@@ -8,7 +8,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class DB_datasource {
 
@@ -193,6 +192,38 @@ public class DB_datasource {
         return neck_selected;
     }
 
+    //Chait
+    public Double findRowBMI(int id){
+        Double BMI_selected=0.0;
+        Cursor cursor=database.rawQuery("Select * from " + DB_sqlOpenHelper.TABLE_TOURS +
+                " WHERE " +  DB_sqlOpenHelper.COLUMN_ID+" = "+id,null);
+
+        while(cursor.moveToNext()) {
+            BMI_selected = cursor.getDouble(6);
+        }
+        return BMI_selected;
+    }
+
+    //Chait
+    public Double findRowBF(int id){
+        Double BF_selected=0.0;
+        Cursor cursor=database.rawQuery("Select * from " + DB_sqlOpenHelper.TABLE_TOURS +
+                " WHERE " +  DB_sqlOpenHelper.COLUMN_ID+" = "+id,null);
+
+        while(cursor.moveToNext()) {
+            BF_selected = cursor.getDouble(5);
+        }
+        return BF_selected;
+    }
+
+ public int maxID() {
+        int maxID = 0;
+        Cursor cursor = database.rawQuery("Select MAX(bodyID) from " + DB_sqlOpenHelper.TABLE_TOURS, null);
+        while (cursor.moveToNext()) {
+            maxID = cursor.getInt(0);
+        }
+        return maxID;
+    }
     public void updateData(int id, String weight, String waist, String neck){
         ContentValues values=new ContentValues();
 

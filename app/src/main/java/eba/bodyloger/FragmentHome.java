@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,13 @@ import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import org.achartengine.ChartFactory;
+import org.achartengine.chart.BarChart;
+import org.achartengine.model.XYMultipleSeriesDataset;
+import org.achartengine.model.XYSeries;
+import org.achartengine.renderer.XYMultipleSeriesRenderer;
+import org.achartengine.renderer.XYSeriesRenderer;
 
 /**
  * Created by Admin on 1/29/2015.
@@ -26,6 +34,7 @@ public class FragmentHome extends Fragment implements AdapterView.OnItemClickLis
     private String[] strListView;
     public static final String ARG_PAGE = "ARG_PAGE";
     private int mPage;
+    private int weight_color;
 
     public static FragmentHome newInstance(int page) {
         Bundle args = new Bundle();
@@ -48,11 +57,12 @@ public class FragmentHome extends Fragment implements AdapterView.OnItemClickLis
         if(mPage==1) {
             view = inflater.inflate(R.layout.fragment_home, container, false);
             fragamentHome(view);
+            openWeightChart(view);
         }else if(mPage==2){
-             view = inflater.inflate(R.layout.fragment_logger, container, false);
+            view = inflater.inflate(R.layout.fragment_logger, container, false);
             fragmentLogger(view);
         }else{
-             view = inflater.inflate(R.layout.fragment_profile, container, false);
+            view = inflater.inflate(R.layout.fragment_profile, container, false);
         }
 //        TextView textView = (TextView) view;
 //        textView.setText("Fragment #" + mPage);
@@ -109,17 +119,17 @@ public class FragmentHome extends Fragment implements AdapterView.OnItemClickLis
         String unit=settings.getString("pref_units","male");
         float BMI;
         if(unit.equals("std")){
-           Float height_meter=height_int*0.0254f;
+            Float height_meter=height_int*0.0254f;
             BMI=(Float.parseFloat(weight))/(height_meter*height_meter);
         }else{
             BMI=(float)(((Float.parseFloat(weight)))*703)/(height_int*height_int);
         }
-       //float BMI=(float)((Integer.parseInt(weight))*703)/(height_int*height_int);
+        //float BMI=(float)((Integer.parseInt(weight))*703)/(height_int*height_int);
         //String BMI=datasource.findLastBMI();
         input_BMI.setText(String.format("%.2f", BMI));
 
         final TextView input_BF=(TextView)view.findViewById(R.id.output_BF);
-       final String waist=datasource.findLastWaist();
+        final String waist=datasource.findLastWaist();
         String sex=settings.getString("pref_sex","male");
         double BF=calculateBF(weight,waist,sex,unit);
 
@@ -142,7 +152,7 @@ public class FragmentHome extends Fragment implements AdapterView.OnItemClickLis
             a=180;
 
         }
-        int weight_color= Color.argb(255, a, b, c);
+         weight_color= Color.argb(255, a, b, c);
         LinearLayout weight_layout=(LinearLayout)view.findViewById(R.id.linearLayoutWeight);
         GradientDrawable temp=(GradientDrawable) weight_layout.getBackground();
         temp.setStroke(20, weight_color);
@@ -206,6 +216,8 @@ public class FragmentHome extends Fragment implements AdapterView.OnItemClickLis
         LinearLayout bf_layout=(LinearLayout)view.findViewById(R.id.linearLayoutBF);
         temp=(GradientDrawable) bf_layout.getBackground();
         temp.setStroke(20, bf_color);
+
+
         return view;
     }
     public View fragmentLogger(View view){
@@ -215,8 +227,8 @@ public class FragmentHome extends Fragment implements AdapterView.OnItemClickLis
         myListView=(ListView) view.findViewById(R.id.mylist);
         String[] stockArr = new String[datasource.findDate().size()];
         strListView = datasource.findDate().toArray(stockArr);
-         ArrayAdapter<String> objadapter=new ArrayAdapter<String>(this.getActivity(),android.R.layout.simple_list_item_1,strListView);
-          myListView.setAdapter(objadapter);
+        ArrayAdapter<String> objadapter=new ArrayAdapter<String>(this.getActivity(),android.R.layout.simple_list_item_1,strListView);
+        myListView.setAdapter(objadapter);
         myListView.setOnItemClickListener(this);
         return view;
 
@@ -230,6 +242,71 @@ public class FragmentHome extends Fragment implements AdapterView.OnItemClickLis
 
 
     public void onClick(View v) {
+
+    }
+
+    //Graph CODE
+    private void openWeightChart(View v){
+
+        Double weight;
+        int maxID = datasource.maxID();
+        XYSeries weightSeries = new XYSeries("Weight");
+
+       if (maxID>10) {
+            for (int k = 0; k < 17; k++) {
+                // ID[k] = maxID-k;
+                weight = datasource.findRowWeight(maxID - (15 - k));
+                weightSeries.add(k, weight);
+            }
+        }else
+       {
+           for(int k=1;k<15;k++){
+               weight=datasource.findRowWeight(k);
+               weightSeries.add(k,weight);
+           }
+       }
+        // Creating a dataset to hold each series
+        XYMultipleSeriesDataset dataset = new XYMultipleSeriesDataset();
+        dataset.addSeries(weightSeries);
+
+
+        XYSeriesRenderer incomeRenderer = new XYSeriesRenderer();
+        incomeRenderer.setColor(Color.rgb(78,139,245));
+        incomeRenderer.setFillPoints(true);
+       // incomeRenderer.setLineWidth(2);
+        incomeRenderer.setDisplayChartValues(true);
+
+        // Creating a XYMultipleSeriesRenderer to customize the whole chart
+        XYMultipleSeriesRenderer multiRenderer = new XYMultipleSeriesRenderer();
+        multiRenderer.setMarginsColor(Color.argb(0x00, 0xff, 0x00, 0x00));
+        //multiRenderer.setMarginsColor(weight_color/2);
+
+        multiRenderer.setZoomButtonsVisible(false);
+        multiRenderer.setDisplayValues(false);
+        //multiRenderer.setYAxisMax();
+        multiRenderer.setPanEnabled(false, false);
+        multiRenderer.setZoomEnabled(false, false);
+        multiRenderer.setBarWidth(40f);
+        multiRenderer.setBarSpacing(0.25);
+       multiRenderer.setShowLegend(false);
+        multiRenderer.setShowAxes(false);
+     multiRenderer.setShowLabels(false);
+
+//        multiRenderer.setChartTitle("WEIGHT");
+//        multiRenderer.setChartTitleTextSize(50f);
+
+
+
+
+        multiRenderer.addSeriesRenderer(incomeRenderer);
+        if(v.equals(null)) {
+            v = this.getView();
+        }
+        LinearLayout wChartContainer = (LinearLayout)v.findViewById(R.id.chart);
+
+        View weightChart = ChartFactory.getBarChartView(getActivity().getBaseContext(), dataset, multiRenderer, BarChart.Type.DEFAULT);
+
+        wChartContainer.addView(weightChart);
 
     }
 }

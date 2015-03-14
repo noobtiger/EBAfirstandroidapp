@@ -40,6 +40,10 @@
             android:parentActivityName=".MainActivity" >
             >
         </activity>
+ <activity
+            android:name="org.achartengine.GraphicalActivity"
+            android:parentActivityName=".MainActivity"
+            />
     </application>
 
 </manifest>
