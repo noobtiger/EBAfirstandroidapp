@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <TextView
+        android:id="@+id/label"
+        android:layout_width="325dp"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+
+        >
+    </TextView>
+
+    <TextView
+        android:id="@+id/value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/label"
+        android:textSize="12sp"
+
+
+        >
+    </TextView>
+    <TextView
+        android:id="@+id/valueDiff"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/label"
+        android:textSize="15sp"
+        android:gravity="center"
+                >
+    </TextView>
+
+</RelativeLayout>

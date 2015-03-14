@@ -52,7 +52,8 @@
         android:id="@+id/linearLayoutBMI"
         android:layout_below="@+id/linearLayoutWeight"
         android:layout_toLeftOf="@+id/linearLayoutWeight"
-        android:layout_toStartOf="@+id/linearLayoutWeight">
+        android:layout_toStartOf="@+id/linearLayoutWeight"
+        android:clickable="true">
 
         <TextView
             android:id="@+id/textView2"
@@ -114,8 +115,23 @@
             android:layout_weight="0.5" />
 
     </LinearLayout>
-<LinearLayout
-        android:id="@+id/chart"
+
+    <LinearLayout
+        android:id="@+id/chart_BMI"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_marginTop="275dp"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical"/>
+    <LinearLayout
+        android:id="@+id/chart_BF"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_marginTop="275dp"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical"/>
+    <LinearLayout
+        android:id="@+id/chart_weight"
         android:layout_width="match_parent"
         android:layout_height="350dp"
         android:layout_marginTop="275dp"

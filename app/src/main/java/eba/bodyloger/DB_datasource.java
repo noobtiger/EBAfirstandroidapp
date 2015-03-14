@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class DB_datasource {
 
@@ -65,6 +66,20 @@ public class DB_datasource {
             while(cursor.moveToNext()){
 
                 String date=cursor.getString(cursor.getColumnIndex(DB_sqlOpenHelper.COLUMN_DATE));
+                Tour.add(date);
+            }
+        }
+        return Tour;
+    }
+    public ArrayList<String>  findWeight(){
+        ArrayList<String> Tour = new ArrayList<String>();
+        Cursor cursor=database.query (DB_sqlOpenHelper.TABLE_TOURS,allCoulmns,
+                null,null,null,null,null);
+        if (cursor.getCount()>0){
+
+            while(cursor.moveToNext()){
+
+                String date=cursor.getString(cursor.getColumnIndex(DB_sqlOpenHelper.COLUMN_WEIGHT));
                 Tour.add(date);
             }
         }

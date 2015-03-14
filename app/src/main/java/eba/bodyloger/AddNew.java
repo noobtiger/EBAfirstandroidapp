@@ -108,9 +108,9 @@ public class AddNew extends ActionBarActivity{
         model.setBMI(valueBMI);
 
         settings=getSharedPreferences("settings", Context.MODE_PRIVATE);
-        final String units=settings.getString("pref_units","us");
+       // final String units=settings.getString("pref_units","us");
         final String sex=settings.getString("pref_sex","male");
-        value=calculateBF(valueWeight,valueWaist,sex, units);
+        value=calculateBF(valueWeight,valueWaist,sex, unit);
         model.setBF(value);
 
 

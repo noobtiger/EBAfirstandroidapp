@@ -8,8 +8,11 @@ import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.text.Layout;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.LinearLayout;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -79,6 +82,7 @@ public  class MainActivity extends ActionBarActivity {
              createDefaultData();
             settings.edit().putBoolean("firstrun", false).commit();
         }
+
 
     }
     public void createDefaultData(){
