@@ -4,15 +4,20 @@ package eba.bodyloger;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -65,6 +70,18 @@ public class AddNew extends ActionBarActivity{
         edit_neck.setText(neck);
 
         final Button button = (Button) findViewById(R.id.addButton);
+        final ImageView image = (ImageView) findViewById(R.id.imageHelp);
+//        button.setBackgroundColor(Color.rgb(64,199,40));
+//        button.setBackgroundColor(Color.rgb(255,170,51));
+        image.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                Toast toast = Toast.makeText(getApplicationContext(), "measured at the umbilicus",
+                        Toast.LENGTH_LONG);
+                toast.setGravity(Gravity.CENTER,0,0);
+                toast.show();
+
+            }
+        });
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 

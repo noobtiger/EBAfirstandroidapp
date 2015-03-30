@@ -122,21 +122,51 @@
         android:layout_height="350dp"
         android:layout_marginTop="275dp"
         android:layout_centerHorizontal="true"
-        android:orientation="vertical"/>
+        android:orientation="vertical">
+
+         <TextView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="BMI"
+        android:layout_marginLeft="150dp"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+
+        />
+        </LinearLayout>>
     <LinearLayout
         android:id="@+id/chart_BF"
         android:layout_width="match_parent"
         android:layout_height="350dp"
         android:layout_marginTop="275dp"
         android:layout_centerHorizontal="true"
-        android:orientation="vertical"/>
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Body Fat"
+            android:layout_marginLeft="145dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+
+            />
+        </LinearLayout>
     <LinearLayout
         android:id="@+id/chart_weight"
         android:layout_width="match_parent"
         android:layout_height="350dp"
         android:layout_marginTop="275dp"
         android:layout_centerHorizontal="true"
-        android:orientation="vertical"/>
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Weight"
+            android:layout_marginLeft="145dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+
+            />
+        </LinearLayout>
+
+
 
 
 </RelativeLayout>

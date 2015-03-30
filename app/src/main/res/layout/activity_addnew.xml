@@ -17,7 +17,7 @@
         <TextView
             android:id="@+id/textWeight"
             android:text="Weight"
-            android:paddingRight="50dp"
+            android:paddingRight="30dp"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <EditText
@@ -25,7 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="number"
+            android:inputType="numberDecimal"
             android:textColor="@android:color/black">
 
 
@@ -34,7 +34,7 @@
         <TextView
             android:id="@+id/ADDtextWeightUnit"
             android:text="lbs"
-            android:paddingRight="50dp"
+            android:paddingRight="3dp"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
     </TableRow>
@@ -52,7 +52,7 @@
         <TextView
             android:id="@+id/textWaist"
             android:text="Waist"
-            android:paddingRight="50dp"
+            android:paddingRight="30dp"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <EditText
@@ -68,8 +68,15 @@
         <TextView
             android:id="@+id/ADDtextWaistUnit"
             android:text="in"
-            android:paddingRight="50dp"
+            android:paddingRight="3dp"
             android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <ImageView
+            android:id="@+id/imageHelp"
+            android:src="@drawable/ic_help"
+            android:layout_marginTop="8dp"
+
+            />
 
     </TableRow>
     <Space
@@ -85,7 +92,7 @@
         <TextView
             android:id="@+id/textNeck"
             android:text="Neck"
-            android:paddingRight="50dp"
+            android:paddingRight="30dp"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <EditText
@@ -101,7 +108,7 @@
         <TextView
             android:id="@+id/ADDtextNeckUnit"
             android:text="in"
-            android:paddingRight="50dp"
+            android:paddingRight="3dp"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
     </TableRow>

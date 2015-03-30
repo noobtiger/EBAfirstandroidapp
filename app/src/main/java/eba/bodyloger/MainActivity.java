@@ -9,6 +9,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.text.Layout;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -79,8 +80,8 @@ public  class MainActivity extends ActionBarActivity {
          if (settings.getBoolean("firstrun", true)) {
             Intent i=new Intent(MainActivity.this, FirstOpen.class);
             startActivity(i);
-             createDefaultData();
-            settings.edit().putBoolean("firstrun", false).commit();
+            createDefaultData();
+                settings.edit().putBoolean("firstrun", false).commit();
         }
 
 

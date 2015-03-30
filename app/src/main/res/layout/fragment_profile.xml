@@ -1,8 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:background="#ffffff"
+    android:weightSum="2"
+    >
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:id="@+id/profile_name"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp" />
 
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Under Construction"
-    android:id="@+id/textView3" />
+    <ImageView
+        android:layout_width="190dp"
+        android:layout_height="250dp"
+        android:id="@+id/imageBefore"
+        android:layout_below="@+id/profile_name"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="23dp"
+        android:src="@drawable/body"
+        android:clickable = "true"/>
+
+    <ImageView
+        android:layout_width="190dp"
+        android:layout_height="250dp"
+        android:id="@+id/imageAfter"
+        android:layout_alignTop="@+id/imageBefore"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/body"
+        android:clickable = "true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Before"
+        android:id="@+id/textView7"
+        android:layout_below="@+id/imageBefore"
+        android:layout_alignLeft="@+id/imageBefore"
+        android:layout_alignEnd="@+id/imageBefore"
+        android:layout_marginTop="25dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="After"
+        android:id="@+id/textView9"
+        android:layout_below="@+id/imageAfter"
+        android:layout_alignRight="@+id/imageAfter"
+        android:layout_alignEnd="@+id/imageAfter"
+        android:layout_marginTop="25dp" />
+
+    <Button
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Weight"
+        android:id="@+id/profileButtonWeight"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginStart="28dp"
+        android:layout_below="@+id/textView7"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" BMI  "
+        android:id="@+id/profileButtonBMI"
+        android:layout_alignTop="@+id/profileButtonWeight"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="  BF  "
+        android:id="@+id/profileButtonBF"
+        android:layout_alignTop="@+id/profileButtonBMI"
+        android:layout_toLeftOf="@+id/textView9"
+        android:layout_toStartOf="@+id/textView9" />
+</RelativeLayout>

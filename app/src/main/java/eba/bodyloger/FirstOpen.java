@@ -20,7 +20,7 @@ import android.widget.Toast;
  */
 public class FirstOpen extends ActionBarActivity{
     private SharedPreferences settings;
-
+//    private SharedPreferences savesettings;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.firstopen_basic);
@@ -29,6 +29,7 @@ public class FirstOpen extends ActionBarActivity{
         ColorDrawable cd = new ColorDrawable(getResources().getColor(R.color.ColorPrimary));
         bar.setBackgroundDrawable(cd);
         settings=getSharedPreferences("settings",MODE_PRIVATE);
+//        savesettings=getSharedPreferences("eba.bodyloger",MODE_PRIVATE);
 
         final Button buttonNext =(Button) findViewById(R.id.firstOpenNext);
         buttonNext.setOnClickListener(new View.OnClickListener() {
@@ -90,6 +91,8 @@ public class FirstOpen extends ActionBarActivity{
 
 
         setContentView(R.layout.firstopen_measure);
+        final Button buttonMeasure =(Button) findViewById(R.id.buttonNextMeasure);
+        buttonMeasure.setEnabled(false);
 
         //Updating units based on preference
         final TextView textview_units=(TextView)findViewById(R.id.unitlbs);
@@ -103,6 +106,7 @@ public class FirstOpen extends ActionBarActivity{
         final EditText editText_heightfeet   = (EditText)findViewById(R.id.editTextheightfeet);
         final EditText editText_heightInches   = (EditText)findViewById(R.id.editTextheightinches);
         final EditText editText_heightmeter   = (EditText)findViewById(R.id.editText3);
+
 
         editText_heightmeter.addTextChangedListener(new TextWatcher() {
             @Override
@@ -128,8 +132,26 @@ public class FirstOpen extends ActionBarActivity{
                 editText_heightInches.setText(Integer.toString(heightInch));
             }
         });
+        editText_heightfeet.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before,
+                                      int count) {
 
-        final Button buttonMeasure =(Button) findViewById(R.id.buttonNextMeasure);
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count,
+                                          int after) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                buttonMeasure.setEnabled(true);
+            }
+        });
+
+
         buttonMeasure.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -141,6 +163,8 @@ public class FirstOpen extends ActionBarActivity{
                 final EditText editText_targetweight   = (EditText)findViewById(R.id.editText2);
                 final EditText editText_heightfeet=(EditText)findViewById(R.id.editTextheightfeet);
                 final EditText editText_heightinches=(EditText)findViewById(R.id.editTextheightinches);
+                final EditText editText_currentweight = (EditText)findViewById(R.id.editTextcurrWeight);
+                SavePreferences("currentweight",editText_currentweight.getText().toString());
                 SavePreferences("targetweight", editText_targetweight.getText().toString());
                 String heightFeet=editText_heightfeet.getText().toString();
                 String heightInch=editText_heightinches.getText().toString();
@@ -149,7 +173,7 @@ public class FirstOpen extends ActionBarActivity{
                 SavePreferences("height_feet",heightFeet);
                 SavePreferences("height_inch",heightInch);
 
-
+//               savesettings.edit().putString("firstopenrun","0");
                 Intent i=new Intent(FirstOpen.this, AddNew.class);
                 startActivity(i);
             }

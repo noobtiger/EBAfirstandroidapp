@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="46dp"
+        android:orientation="vertical"
+
+        android:weightSum="1"
+        android:id="@+id/profile_weight"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal">
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="You've lost"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_alignParentTop="false"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:id="@+id/profile_weightloss"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="100"
+            android:gravity="top|center"
+            android:layout_marginTop="-10dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_weight="0.5" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Goal: "
+        android:id="@+id/textView10"
+        android:layout_below="@+id/profile_weight"
+        android:layout_toLeftOf="@+id/profile_weight"
+        android:layout_toStartOf="@+id/profile_weight"
+        android:layout_marginTop="75dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Current: "
+        android:id="@+id/textView13"
+        android:layout_below="@+id/textView10"
+        android:layout_toLeftOf="@+id/profile_weight"
+        android:layout_toStartOf="@+id/profile_weight"
+        android:layout_marginTop="54dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start: "
+        android:id="@+id/textView14"
+        android:layout_below="@+id/textView13"
+        android:layout_toLeftOf="@+id/profile_weight"
+        android:layout_toStartOf="@+id/profile_weight"
+        android:layout_marginTop="54dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="100"
+        android:id="@+id/profile_weight_goal"
+        android:layout_above="@+id/textView13"
+        android:layout_toRightOf="@+id/textView13"
+        android:layout_toEndOf="@+id/textView13"
+        android:layout_marginLeft="28dp"
+        android:layout_marginStart="28dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="100"
+        android:id="@+id/profile_weight_current"
+        android:layout_above="@+id/textView14"
+        android:layout_alignLeft="@+id/profile_weight_goal"
+        android:layout_alignStart="@+id/profile_weight_goal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="100"
+        android:id="@+id/profile_weight_start"
+        android:layout_alignBottom="@+id/textView14"
+        android:layout_alignLeft="@+id/profile_weight_current"
+        android:layout_alignStart="@+id/profile_weight_current" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" lbs"
+        android:id="@+id/profile_weight_unit1"
+        android:layout_above="@+id/textView13"
+        android:layout_toRightOf="@+id/profile_weight_goal"
+        android:layout_toEndOf="@+id/profile_weight_goal"
+        android:layout_marginLeft="30dp"
+        android:layout_marginStart="30dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" lbs"
+        android:id="@+id/profile_weight_unit2"
+        android:layout_alignBottom="@+id/profile_weight_current"
+        android:layout_alignLeft="@+id/profile_weight_unit1"
+        android:layout_alignStart="@+id/profile_weight_unit1" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" lbs"
+        android:id="@+id/profile_weight_unit3"
+        android:layout_alignTop="@+id/textView14"
+        android:layout_alignLeft="@+id/profile_weight_unit2"
+        android:layout_alignStart="@+id/profile_weight_unit2" />
+
+</RelativeLayout>

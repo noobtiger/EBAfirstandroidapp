@@ -9,14 +9,18 @@ import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.achartengine.ChartFactory;
 import org.achartengine.chart.BarChart;
@@ -25,6 +29,7 @@ import org.achartengine.model.XYSeries;
 import org.achartengine.renderer.XYMultipleSeriesRenderer;
 import org.achartengine.renderer.XYSeriesRenderer;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -41,9 +46,11 @@ public class FragmentHome extends Fragment implements AdapterView.OnItemClickLis
     String strweightDiff;
     public static final String ARG_PAGE = "ARG_PAGE";
     private int mPage;
-    private int weight_color;
-    private int bmi_color;
-    private int bf_color;
+    private static int weight_color;
+    private static int bmi_color;
+    private static int bf_color;
+
+    private static final int CAMERA_REQUEST = 1888;
 
 
     public static FragmentHome newInstance(int page) {
@@ -64,18 +71,20 @@ public class FragmentHome extends Fragment implements AdapterView.OnItemClickLis
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(final LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
 
         View view;
         mPage = getArguments().getInt(ARG_PAGE);
         if(mPage==1) {
             view = inflater.inflate(R.layout.fragment_home, container, false);
+
             fragamentHome(view);
 
             openBMIChart(view);
             openBFChart(view);
             openWeightChart(view);
+
 
             final LinearLayout layout_BMI=(LinearLayout)view.findViewById(R.id.linearLayoutBMI);
             final LinearLayout layout_weight=(LinearLayout)view.findViewById(R.id.linearLayoutWeight);
@@ -85,9 +94,39 @@ public class FragmentHome extends Fragment implements AdapterView.OnItemClickLis
             final LinearLayout chart_BMI=(LinearLayout)view.findViewById(R.id.chart_BMI);
             final LinearLayout chart_BF=(LinearLayout)view.findViewById(R.id.chart_BF);
 
+
+
             chart_weight.setVisibility(View.VISIBLE);
             chart_BF.setVisibility(View.INVISIBLE);
             chart_BMI.setVisibility(View.INVISIBLE);
+
+            chart_BF.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    Intent in = new Intent(getActivity(),ActivityFullBFChart.class);
+                    startActivity(in);
+                    return true;
+
+                }
+            });
+            chart_BMI.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    Intent in = new Intent(getActivity(),ActivityFullBMIChart.class);
+                    startActivity(in);
+                    return true;
+
+                }
+            });
+            chart_weight.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    Intent in = new Intent(getActivity(),ActivityFullWeightChart.class);
+                    startActivity(in);
+                    return true;
+
+                }
+            });
 
             layout_BMI.setOnClickListener(new View.OnClickListener() {
 
@@ -116,11 +155,14 @@ public class FragmentHome extends Fragment implements AdapterView.OnItemClickLis
                     chart_BMI.setVisibility(View.INVISIBLE);
                 }
             });
+
+
         }else if(mPage==2){
             view = inflater.inflate(R.layout.fragment_logger, container, false);
             fragmentLogger(view);
         }else{
             view = inflater.inflate(R.layout.fragment_profile, container, false);
+            fragamentProfile(view);
         }
 
 
@@ -174,6 +216,7 @@ public class FragmentHome extends Fragment implements AdapterView.OnItemClickLis
         settings=getActivity().getSharedPreferences("settings", Context.MODE_PRIVATE);
         final String height=settings.getString("height","0");
         String weight=datasource.findLastWeight();
+        Double dWeight = Double.parseDouble(weight);
         final TextView input_weight   = (TextView) view.findViewById(R.id.output_weight);
         input_weight.setText(weight);
 
@@ -202,7 +245,7 @@ public class FragmentHome extends Fragment implements AdapterView.OnItemClickLis
         int b=0;
         int c=0;
         final String targetweight=settings.getString("targetweight","0");
-        int weightDiff=Math.abs(Integer.parseInt(targetweight)-Integer.parseInt(weight));
+        int weightDiff=Math.abs(Integer.parseInt(targetweight)-(dWeight.intValue()));
         if(weightDiff<5) {
             a=255-(200-(weightDiff*20));
             b=255;
@@ -292,13 +335,21 @@ public class FragmentHome extends Fragment implements AdapterView.OnItemClickLis
         strListView = datasource.findDate().toArray(stockArr);
         String[] myArr = new String[datasource.findWeight().size()];
         strListViewWeight = datasource.findWeight().toArray(myArr);
+       Double[] dstrArrayList = new Double[strListViewWeight.length];
+        ArrayList abcd = new ArrayList(stockArr.length);
+         for (int i = 0; i < stockArr.length; i++) {
+             Double dstrWeight = Double.parseDouble(strListViewWeight[i]);
+             dstrArrayList[i] = dstrWeight;
+         }
 
         ArrayList<RowItem> rowItems = new ArrayList<RowItem>();
         for (int i = 1; i < stockArr.length; i++) {
+
+
             if(i==0) {
-                strweightDiff = String.valueOf(Integer.parseInt(strListViewWeight[i]) - Integer.parseInt(strListViewWeight[i]));
+                strweightDiff = String.valueOf((dstrArrayList[i].intValue()) - (dstrArrayList[i].intValue()));
             }else{
-                strweightDiff = String.valueOf(Integer.parseInt(strListViewWeight[i]) - Integer.parseInt(strListViewWeight[i-1]));
+                strweightDiff = String.valueOf((dstrArrayList[i].intValue()) - (dstrArrayList[i-1].intValue()));
             }
             RowItem item = new RowItem(strListView[i], strListViewWeight[i], strweightDiff);
             rowItems.add(item);
@@ -363,7 +414,7 @@ public class FragmentHome extends Fragment implements AdapterView.OnItemClickLis
 
         multiRenderer.setZoomButtonsVisible(false);
         multiRenderer.setDisplayValues(false);
-        //multiRenderer.setYAxisMax();
+
         multiRenderer.setPanEnabled(false, false);
         multiRenderer.setZoomEnabled(false, false);
         multiRenderer.setBarWidth(40f);
@@ -390,7 +441,7 @@ public class FragmentHome extends Fragment implements AdapterView.OnItemClickLis
 
     }
 
-    private void openBMIChart(View v){
+    public void openBMIChart(View v){
 
         Double weight;
         int maxID = datasource.maxID();
@@ -411,13 +462,16 @@ public class FragmentHome extends Fragment implements AdapterView.OnItemClickLis
         }
         // Creating a dataset to hold each series
         XYMultipleSeriesDataset dataset = new XYMultipleSeriesDataset();
+//        weightSeries.addAnnotation("BMI",weightSeries.getMaxX(),weightSeries.getMaxY());
         dataset.addSeries(weightSeries);
+
 
 
         XYSeriesRenderer incomeRenderer = new XYSeriesRenderer();
         // incomeRenderer.setColor(Color.rgb(78,139,245));
         incomeRenderer.setColor(bmi_color);
         incomeRenderer.setFillPoints(true);
+
         // incomeRenderer.setLineWidth(2);
         incomeRenderer.setDisplayChartValues(false);
 
@@ -512,14 +566,77 @@ public class FragmentHome extends Fragment implements AdapterView.OnItemClickLis
         if(v.equals(null)) {
             v = this.getView();
         }
-        LinearLayout wChartContainer = (LinearLayout)v.findViewById(R.id.chart_BF);
-
+        LinearLayout wChartContainer;
+        wChartContainer = (LinearLayout)v.findViewById(R.id.chart_BF);
         View weightChart = ChartFactory.getBarChartView(getActivity().getBaseContext(), dataset, multiRenderer, BarChart.Type.DEFAULT);
 
         wChartContainer.addView(weightChart);
 
     }
 
+    //Fragment Profile CODE - Chait
+    public View fragamentProfile(View view) {
 
+        //Setting the name at the top of the page from the shared preferences
+        TextView profileName=(TextView)view.findViewById(R.id.profile_name);
+        settings=getActivity().getSharedPreferences("settings", Context.MODE_PRIVATE);
+        profileName.setText(settings.getString("name","0"));
+
+        //Setting onclickevents for buttons
+        Button profileWeight=(Button)view.findViewById(R.id.profileButtonWeight);
+        Button profileBMI=(Button)view.findViewById(R.id.profileButtonBMI);
+        Button profileBF=(Button)view.findViewById(R.id.profileButtonBF);
+
+        profileWeight.setBackgroundColor(weight_color);
+        profileBF.setBackgroundColor(bmi_color);
+        profileBMI.setBackgroundColor(bf_color);
+
+        profileBMI.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(getActivity(),ProfileBMI.class);
+                startActivity(in);
+            }
+        });
+
+        profileBF.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(getActivity(),ProfileBF.class);
+                startActivity(in);
+            }
+        });
+
+        profileWeight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(getActivity(),ProfileWeight.class);
+                startActivity(in);
+            }
+            });
+
+            //Camera Code
+            openCamera(view);
+    return view;
+    }
+    private void openCamera(View view){
+        ImageView imageBefore=(ImageView)view.findViewById(R.id.imageBefore);
+        ImageView imageAfter=(ImageView)view.findViewById(R.id.imageAfter);
+        imageBefore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                Intent in = new Intent(getActivity(),ProfileWeight.class);
+//                startActivity(in);
+            }
+        });
+        imageAfter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                Intent in = new Intent(getActivity(),ProfileWeight.class);
+//                startActivity(in);
+            }
+        });
+
+    }
 }
 

@@ -1,175 +1,215 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
+<TableLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/tableLayout">
+    <TableRow
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Input your initial measurements"
+            android:id="@+id/textView4"
+            android:layout_alignParentTop="true"
+            android:layout_alignLeft="@+id/textViewHeight"
+            android:layout_alignStart="@+id/textViewHeight"
+            android:layout_marginTop="23dp"
+            android:layout_marginLeft="30dp"/>
+    </TableRow>
+    </TableLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
+    <TableLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Height"
-        android:id="@+id/textViewHeight"
-        android:layout_marginLeft="25dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="76dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_below="@+id/tableLayout"
+        android:id="@+id/tableLayout2"
+        android:layout_marginTop="30dp">
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Height"
+                android:id="@+id/textViewHeight"
+                android:layout_marginLeft="20dp"
+                />
 
-    <EditText
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
-        android:id="@+id/editTextheightfeet"
-        android:layout_alignTop="@+id/textViewHeight"
-        android:layout_toRightOf="@+id/textViewHeight"
-        android:layout_toEndOf="@+id/textViewHeight" />
+            <EditText
+                android:layout_width="115dp"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:layout_column="1"
+                android:id="@+id/editTextheightfeet"
+               />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="feet"
-        android:id="@+id/unitFeet"
-        android:layout_alignBottom="@+id/textViewHeight"
-        android:layout_toRightOf="@+id/editTextheightfeet"
-        android:layout_toEndOf="@+id/editTextheightfeet" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="feet"
+                android:id="@+id/unitFeet"
+                 />
 
-    <EditText
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:ems="10"
-        android:id="@+id/editTextheightinches"
-        android:layout_alignTop="@+id/editTextheightfeet"
-        android:layout_toRightOf="@+id/unitFeet"
-        android:layout_toEndOf="@+id/unitFeet" />
+            <EditText
+                android:layout_width="115dp"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:ems="10"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/editTextheightinches"
+                 />
 
-    <TextView
-        android:layout_width="wrap_content"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="in"
+                android:id="@+id/unitInches"
+                 />
+        </TableRow>
+        </TableLayout>
+    <TableLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="inches"
-        android:id="@+id/unitInches"
-        android:layout_alignTop="@+id/unitFeet"
-        android:layout_toRightOf="@+id/editTextheightinches"
-        android:layout_toEndOf="@+id/editTextheightinches" />
+        android:layout_below="@+id/tableLayout2"
+        android:id="@+id/tableLayout3"
+        android:layout_marginTop="10dp">
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="(OR)"
+                android:layout_marginLeft="110dp"
+                android:id="@+id/textView8">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Input your initial measurements"
-        android:id="@+id/textView4"
-        android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/textViewHeight"
-        android:layout_alignStart="@+id/textViewHeight"
-        android:layout_marginTop="23dp" />
+                </TextView>
+            <EditText
+                android:layout_width="195dp"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:ems="10"
+                android:layout_marginLeft="2dp"
+                android:layout_column="1"
+                android:id="@+id/editText3"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="mts"
+                android:id="@+id/unitMeteres"
+                />
+            </TableRow>
+        </TableLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
+    <TableLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Current Weight"
-        android:id="@+id/textView5"
-        android:layout_marginTop="127dp"
-        android:layout_below="@+id/editTextheightfeet"
-        android:layout_alignLeft="@+id/textViewHeight"
-        android:layout_alignStart="@+id/textViewHeight" />
+        android:layout_below="@+id/tableLayout3"
+        android:id="@+id/tableLayout4"
+        android:layout_marginTop="30dp">
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Starting Weight"
+                android:layout_marginLeft="20dp"
+                android:id="@+id/textView5"/>
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:ems="10"
-        android:id="@+id/editText"
-        android:layout_alignBottom="@+id/textView5"
-        android:layout_toRightOf="@+id/textView5"
-        android:layout_alignRight="@+id/textView4"
-        android:layout_alignEnd="@+id/textView4" />
+            <EditText
+                android:layout_width="195dp"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:ems="10"
+                android:layout_marginLeft="5dp"
+                android:layout_column="1"
+                android:id="@+id/editTextcurrWeight"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="lbs"
+                android:id="@+id/unitlbs"
+                />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Target Weight"
-        android:id="@+id/textView6"
-        android:layout_marginTop="52dp"
-        android:layout_below="@+id/textView5"
-        android:layout_toLeftOf="@+id/editText2"
-        android:layout_toStartOf="@+id/editText2" />
+        </TableRow>
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:ems="10"
-        android:id="@+id/editText2"
-        android:layout_alignBottom="@+id/textView6"
-        android:layout_alignLeft="@+id/editText"
-        android:layout_alignStart="@+id/editText"
-        android:layout_alignRight="@+id/editText"
-        android:layout_alignEnd="@+id/editText" />
+        </TableLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
+    <TableLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="lbs"
-        android:id="@+id/unitlbs"
-        android:layout_alignTop="@+id/textView5"
-        android:layout_toRightOf="@+id/textView4"
-        android:layout_toEndOf="@+id/textView4" />
+        android:layout_below="@+id/tableLayout4"
+        android:id="@+id/tableLayout5"
+        android:layout_marginTop="30dp">
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Target Weight"
+                android:layout_marginLeft="20dp"
+                android:id="@+id/textView6"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="lbs"
-        android:id="@+id/unitlbs2"
-        android:layout_alignTop="@+id/textView6"
-        android:layout_alignLeft="@+id/unitlbs"
-        android:layout_alignStart="@+id/unitlbs" />
+            <EditText
+                android:layout_width="195dp"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:ems="10"
+                android:layout_marginLeft="13dp"
+                android:layout_column="1"
+                android:id="@+id/editText2"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="lbs"
+                android:id="@+id/unitlbs2"
+                />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Next"
-        android:id="@+id/buttonNextMeasure"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="116dp" />
+        </TableRow>
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:ems="10"
-        android:id="@+id/editText3"
-        android:layout_marginBottom="34dp"
-        android:layout_above="@+id/editText"
-        android:layout_toLeftOf="@+id/textView7"
-        android:layout_toStartOf="@+id/textView7" />
+    </TableLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
+    <TableLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="meters"
-        android:id="@+id/textView7"
-        android:layout_alignTop="@+id/editText3"
-        android:layout_alignRight="@+id/unitlbs"
-        android:layout_alignEnd="@+id/unitlbs" />
+        android:layout_below="@+id/tableLayout5"
+        android:id="@+id/tableLayout6"
+        android:layout_marginTop="30dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="(OR)"
-        android:id="@+id/textView8"
-        android:layout_alignBaseline="@+id/textView7"
-        android:layout_alignBottom="@+id/textView7"
-        android:layout_alignLeft="@+id/textView6"
-        android:layout_alignStart="@+id/textView6" />
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <Button
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="Next"
+                android:id="@+id/buttonNextMeasure"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+
+                android:layout_marginLeft="90dp"/>
+        </TableRow>
+        </TableLayout>
+
 
 </RelativeLayout>

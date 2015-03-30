@@ -28,7 +28,7 @@ public class ActivityLoggerDetail extends ActionBarActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loggerdetail);
         ActionBar bar = getSupportActionBar();
-        bar.setDisplayHomeAsUpEnabled(false);
+        bar.setDisplayHomeAsUpEnabled(true);
         ColorDrawable cd = new ColorDrawable(getResources().getColor(R.color.ColorPrimary));
         bar.setBackgroundDrawable(cd);
 
@@ -52,11 +52,11 @@ public class ActivityLoggerDetail extends ActionBarActivity{
             datasource=new DB_datasource(this);
             datasource.open();
             int total=datasource.findTotalRows();
-            //chosenPosition=total-chosenPosition;
-            String datesel=datasource.findRowDate(chosenPosition+2);
-                TextWeight.setText(Double.toString(datasource.findRowWeight(chosenPosition+2)));
-                TextWaist.setText(Double.toString(datasource.findRowWaist(chosenPosition+2)));
-                TextNeck.setText(Double.toString(datasource.findRowNeck(chosenPosition+2)));
+            chosenPosition=total-chosenPosition;
+            String datesel=datasource.findRowDate(chosenPosition);
+                TextWeight.setText(Double.toString(datasource.findRowWeight(chosenPosition)));
+                TextWaist.setText(Double.toString(datasource.findRowWaist(chosenPosition)));
+                TextNeck.setText(Double.toString(datasource.findRowNeck(chosenPosition)));
                 date.setText(datesel);
 
         }

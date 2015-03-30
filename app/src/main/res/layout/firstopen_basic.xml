@@ -127,19 +127,20 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="US"
+                android:text="US (lbs,ft)"
                 android:id="@+id/radioButton_imperial"
 
                 android:checked="false" />
-
-
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Standard"
+                android:text="Standard (kgs,mts)"
+
+                android:layout_column="1"
                 android:id="@+id/radioButton_metric"
-                android:layout_column="2"
+
                 android:checked="false" />
+
 
         </RadioGroup>
 
@@ -147,6 +148,30 @@
 
 
     </TableRow>
+
+
+    <!--<TableRow-->
+        <!--android:id="@+id/rowMeasurements1"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:padding="5dip" >-->
+
+
+            <!--&lt;!&ndash;<RadioButton&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:text="Standard (kgs,mts)"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:gravity="left"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_column="1"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:id="@+id/radioButton_metric"&ndash;&gt;-->
+
+                <!--&lt;!&ndash;android:checked="false" />&ndash;&gt;-->
+
+
+
+
+
+    <!--</TableRow>-->
 
 
 
